@@ -43,10 +43,16 @@ export const config = {
     normal: 30,
   },
   pyramid: {
-    specialistHeroic: [3, 3, 3, 3, 3, 1],
-    versatileHeroic: [6, 5, 4, 3, 2, 1],
-    specialistRealistic: [2, 2, 2, 2, 2],
-    versatileRealistic: [5, 4, 3, 2, 1],
+    specialistHeroic: {
+      label: 'Especialista heroico',
+      values: [3, 3, 3, 3, 3, 1],
+    },
+    versatileHeroic: { label: 'Versátil heroico', values: [6, 5, 4, 3, 2, 1] },
+    specialistRealistic: {
+      label: 'Especialista realista',
+      values: [2, 2, 2, 2, 2],
+    },
+    versatileRealistic: { label: 'Versátil realista', values: [5, 4, 3, 2, 1] },
   },
 }
 

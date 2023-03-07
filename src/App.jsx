@@ -12,14 +12,22 @@ function App() {
     formState: { errors },
   } = useForm()
 
-  console.log(getValues())
+  const group = (entries) => {
+    if (!entries) return null
+    return Object.entries(entries).reduce((group, [ability, value]) => {
+      return {
+        ...group,
+        [value]: [...(group[value] || []), ability],
+      }
+    }, {})
+  }
 
   return (
     <main className="container-fluid">
       <header>
         <section style={{ columns: 4 }}>
-          {Object.entries(attributes).map(([key, { label }]) => (
-            <label htmlFor={key}>
+          {Object.entries(attributes).map(([key, { label }], index) => (
+            <label htmlFor={key} key={index}>
               <input
                 name={key}
                 placeholder={label}
@@ -37,22 +45,40 @@ function App() {
       <section>
         <fieldset>
           <legend>Tono de la partida</legend>
-          {Object.entries(config.pyramid).map(([key, { label }]) => (
-            <label htmlFor={key}>
+          {Object.entries(config.pyramid).map(([key, { label }], index) => (
+            <label htmlFor={key} key={index}>
               <input type="radio" {...register('pyramid')} value={key} />
               {label}
             </label>
           ))}
         </fieldset>
-        {config.pyramid[watch('pyramid')]?.values.map((value, index) => (
-          <p>
-            {value} habilidades de nivel {index + 1}
-          </p>
-        ))}
+        <div className="grid">
+          {config.pyramid[watch('pyramid')]?.values.map((value, index) => (
+            <div>
+              <p
+                style={
+                  group(getValues('abilities'))[index + 1]?.length === value
+                    ? { color: 'green' }
+                    : { color: 'red' }
+                }
+              >
+                {value} habilidades de nivel {index + 1} :
+              </p>
+              {group(getValues('abilities'))[index + 1]?.map((key) => (
+                <p>
+                  {
+                    abilities.actual.find((ability) => ability.key === key)
+                      .label
+                  }
+                </p>
+              ))}
+            </div>
+          ))}
+        </div>
       </section>
       <section style={{ columns: 3 }}>
-        {abilities.actual.map(({ key, label, attribute }) => (
-          <article>
+        {abilities.actual.map(({ key, label, attribute }, index) => (
+          <article key={index}>
             <label htmlFor={key}>
               <input
                 name={key}
@@ -66,8 +92,8 @@ function App() {
               {label}
             </label>
             <p>{`${
-              Number(watch(`attributes.${attribute}`, config.abilities.min)) +
-              Number(watch(`abilities.${key}`, 0))
+              Number(watch(`attributes.${attribute}`, config.attributes.min)) +
+              Number(watch(`abilities.${key}`, config.abilities.min))
             }`}</p>
           </article>
         ))}

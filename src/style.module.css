@@ -1,0 +1,26 @@
+.ability {
+    width: 80px;
+    --border-color: none;
+}
+
+.attributes {
+    display: flex;
+    justify-content: space-between;
+}
+
+.abilities {
+    columns: 2;
+}
+
+.limit {
+    color: green;
+}
+
+.off {
+    color: red;
+}
+
+input[type="number"] {
+    width: 80px;
+    --border-color: none;
+}

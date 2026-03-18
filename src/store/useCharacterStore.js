@@ -8,7 +8,7 @@ export const useCharacterStore = create((set) => ({
     dexterity: config.attributes.min,
     physical: config.attributes.min,
   },
-  pyramid: 'specialistHeroic',
+  tone: 'specialistHeroic',
   abilities: {},
 
   setAttribute: (key, value) =>
@@ -19,7 +19,7 @@ export const useCharacterStore = create((set) => ({
       },
     })),
 
-  setPyramid: (tone) => set({ pyramid: tone }),
+  setTone: (tone) => set({ tone: tone }),
 
   setAbility: (key, value) =>
     set((state) => ({

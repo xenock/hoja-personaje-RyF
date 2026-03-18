@@ -1,21 +1,21 @@
 import { config } from '../db'
 import { useCharacterStore } from '../store/useCharacterStore'
 
-export function PyramidSelector() {
-  const { pyramid, setPyramid } = useCharacterStore()
+export function ToneSelector() {
+  const { tone, setTone } = useCharacterStore()
 
   return (
     <fieldset>
       <legend>Tono de la partida</legend>
-      {Object.entries(config.pyramid).map(([key, { label }]) => (
+      {Object.entries(config.tone).map(([key, { label }]) => (
         <label htmlFor={key} key={key}>
           <input
             id={key}
             type="radio"
-            name="pyramid"
+            name="tone"
             value={key}
-            checked={pyramid === key}
-            onChange={(e) => setPyramid(e.target.value)}
+            checked={tone === key}
+            onChange={(e) => setTone(e.target.value)}
           />
           {label}
         </label>

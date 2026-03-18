@@ -3,16 +3,16 @@ import { useCharacterStore } from '../store/useCharacterStore'
 import { groupAbilities } from '../utils/groupAbilities'
 import styles from '../style.module.css'
 
-export function PyramidValidator() {
-  const pyramid = useCharacterStore((state) => state.pyramid)
+export function ToneValidator() {
+  const tone = useCharacterStore((state) => state.tone)
   const abilitiesState = useCharacterStore((state) => state.abilities)
 
-  const pyramidValues = config.pyramid[pyramid]?.values || []
+  const toneValues = config.tone[tone]?.values || []
   const groupedAbilities = groupAbilities(abilitiesState)
 
   return (
     <div className="grid">
-      {pyramidValues.map((value, index) => {
+      {toneValues.map((value, index) => {
         const level = index + 1
         const count = groupedAbilities[level]?.length || 0
         const isExactLimit = count === value

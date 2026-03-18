@@ -42,7 +42,7 @@ export const config = {
     realistic: 22,
     normal: 30,
   },
-  pyramid: {
+  tone: {
     specialistHeroic: {
       label: 'Especialista heroico',
       values: [3, 3, 3, 3, 3, 1],

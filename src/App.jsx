@@ -1,7 +1,7 @@
 import '@picocss/pico'
 import { AttributesSection } from './components/AttributesSection'
-import { PyramidSelector } from './components/PyramidSelector'
-import { PyramidValidator } from './components/PyramidValidator'
+import { ToneSelector } from './components/ToneSelector'
+import { ToneValidator } from './components/ToneValidator'
 import { AbilitiesGrid } from './components/AbilitiesGrid'
 
 function App() {
@@ -12,8 +12,8 @@ function App() {
       </header>
 
       <section>
-        <PyramidSelector />
-        <PyramidValidator />
+        <ToneSelector />
+        <ToneValidator />
       </section>
 
       <AbilitiesGrid />

@@ -23,7 +23,7 @@ export const useCharacterStore = create((set) => ({
 
   setSkill: (key, value) =>
     set((state) => ({
-      abilities: {
+      skills: {
         ...state.skills,
         [key]: Number(value),
       },

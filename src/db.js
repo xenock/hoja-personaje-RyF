@@ -56,7 +56,7 @@ export const config = {
   },
 }
 
-export const attributes = {
+export const attributeNames = {
   perception: {
     label: 'Percepción',
   },

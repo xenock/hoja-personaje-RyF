@@ -2,7 +2,8 @@ import { config } from '../db'
 import { useCharacterStore } from '../store/useCharacterStore'
 
 export function ToneSelector() {
-  const { tone, setTone } = useCharacterStore()
+  const tone = useCharacterStore((state) => state.tone)
+  const setTone = useCharacterStore((state) => state.setTone)
 
   return (
     <fieldset>

@@ -1,13 +1,14 @@
-import { attributes, config } from '../db'
+import { attributeNames, config } from '../db'
 import { useCharacterStore } from '../store/useCharacterStore'
 import styles from '../style.module.css'
 
 export function AttributesSection() {
-  const { attributes: stateAttributes, setAttribute } = useCharacterStore()
+  const stateAttributes = useCharacterStore((state) => state.attributes)
+  const setAttribute = useCharacterStore((state) => state.setAttribute)
 
   return (
     <section className={styles.attributes}>
-      {Object.entries(attributes).map(([key, { label }]) => (
+      {Object.entries(attributeNames).map(([key, { label }]) => (
         <label htmlFor={key} key={key}>
           {label}
           <input
@@ -16,7 +17,6 @@ export function AttributesSection() {
             type="number"
             min={config.attributes.min}
             max={config.attributes.max}
-            // Estado controlado local
             value={stateAttributes[key]}
             onChange={(e) => setAttribute(key, e.target.value)}
           />

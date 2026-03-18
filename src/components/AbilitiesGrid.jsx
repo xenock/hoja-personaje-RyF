@@ -1,18 +1,19 @@
 import { Fragment } from 'react'
-import { useFormContext } from 'react-hook-form'
 import { abilities, config } from '../db'
+import { useCharacterStore } from '../store/useCharacterStore'
 import styles from '../style.module.css'
 
 export function AbilitiesGrid() {
-  const { register, watch } = useFormContext()
+  const abilitiesState = useCharacterStore((state) => state.abilities)
+  const attributesState = useCharacterStore((state) => state.attributes)
+  const setAbility = useCharacterStore((state) => state.setAbility)
 
   return (
     <section className={styles.abilities}>
       {abilities.actual.map(({ key, label, attribute }) => {
         const attributeVal =
-          Number(watch(`attributes.${attribute}`, config.attributes.min)) || 0
-        const abilityVal =
-          Number(watch(`abilities.${key}`, config.abilities.min)) || 0
+          Number(attributesState[attribute]) || config.attributes.min
+        const abilityVal = Number(abilitiesState[key]) || config.abilities.min
         const total = attributeVal + abilityVal
 
         return (
@@ -21,11 +22,11 @@ export function AbilitiesGrid() {
               <input
                 id={key}
                 placeholder={label}
-                {...register(`abilities.${key}`)}
                 type="number"
                 min={config.abilities.min}
                 max={config.abilities.max}
-                defaultValue={config.abilities.min}
+                value={abilityVal}
+                onChange={(e) => setAbility(key, e.target.value)}
               />
               {`${label} `}
               {total}

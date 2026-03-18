@@ -1,9 +1,9 @@
-import { useFormContext } from 'react-hook-form'
 import { attributes, config } from '../db'
+import { useCharacterStore } from '../store/useCharacterStore'
 import styles from '../style.module.css'
 
 export function AttributesSection() {
-  const { register } = useFormContext()
+  const { attributes: stateAttributes, setAttribute } = useCharacterStore()
 
   return (
     <section className={styles.attributes}>
@@ -13,11 +13,12 @@ export function AttributesSection() {
           <input
             id={key}
             placeholder={label}
-            {...register(`attributes.${key}`)}
             type="number"
             min={config.attributes.min}
             max={config.attributes.max}
-            defaultValue={config.attributes.min}
+            // Estado controlado local
+            value={stateAttributes[key]}
+            onChange={(e) => setAttribute(key, e.target.value)}
           />
         </label>
       ))}

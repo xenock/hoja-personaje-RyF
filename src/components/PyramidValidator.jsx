@@ -1,14 +1,14 @@
-import { useFormContext } from 'react-hook-form'
 import { abilities, config } from '../db'
-import styles from '../style.module.css'
+import { useCharacterStore } from '../store/useCharacterStore'
 import { groupAbilities } from '../utils/groupAbilities'
+import styles from '../style.module.css'
 
 export function PyramidValidator() {
-  const { watch, getValues } = useFormContext()
-  const selectedPyramid = watch('pyramid')
-  const pyramidValues = config.pyramid[selectedPyramid]?.values || []
+  const pyramid = useCharacterStore((state) => state.pyramid)
+  const abilitiesState = useCharacterStore((state) => state.abilities)
 
-  const groupedAbilities = groupAbilities(getValues('abilities'))
+  const pyramidValues = config.pyramid[pyramid]?.values || []
+  const groupedAbilities = groupAbilities(abilitiesState)
 
   return (
     <div className="grid">

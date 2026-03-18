@@ -14,7 +14,7 @@
     "@picocss/pico": "^2.1.1",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
-    "react-hook-form": "^7.71.2"
+    "zustand": "^5.0.12"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.4.7",

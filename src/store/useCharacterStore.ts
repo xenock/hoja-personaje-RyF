@@ -1,7 +1,16 @@
 import { create } from 'zustand'
-import { config } from '../rules'
+import { config, type Attribute, type SkillKey, type Tone } from '../rules'
 
-export const useCharacterStore = create((set) => ({
+interface CharacterState {
+  attributes: Record<Attribute, number>
+  tone: Tone
+  skills: Partial<Record<SkillKey, number>>
+  setAttribute: (key: Attribute, value: number) => void
+  setTone: (tone: Tone) => void
+  setSkill: (key: SkillKey, value: number) => void
+}
+
+export const useCharacterStore = create<CharacterState>((set) => ({
   attributes: {
     perception: config.attributes.min,
     intelligence: config.attributes.min,
@@ -19,7 +28,7 @@ export const useCharacterStore = create((set) => ({
       },
     })),
 
-  setTone: (tone) => set({ tone: tone }),
+  setTone: (tone) => set({ tone }),
 
   setSkill: (key, value) =>
     set((state) => ({

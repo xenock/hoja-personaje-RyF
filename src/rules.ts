@@ -1,3 +1,26 @@
+export const attributeNames = {
+  perception: {
+    label: 'Percepción',
+  },
+  intelligence: {
+    label: 'Inteligencia',
+  },
+  dexterity: {
+    label: 'Destreza',
+  },
+  physical: {
+    label: 'Físico',
+  },
+} as const
+
+export type Attribute = keyof typeof attributeNames
+
+export interface Skill {
+  attribute: Attribute
+  label: string
+  key: string
+}
+
 const actual = [
   { attribute: 'perception', label: 'Advertir/Notar', key: 'warn' },
   { attribute: 'dexterity', label: 'Armas a Distancia', key: 'remoteWeapons' },
@@ -25,9 +48,11 @@ const actual = [
   { attribute: 'dexterity', label: 'Pilotar', key: 'pilot' },
   { attribute: 'dexterity', label: 'Sigilo', key: 'stealth' },
   { attribute: 'intelligence', label: 'Supervivencia', key: 'survival' },
-]
+] as const satisfies readonly Skill[]
 
 export const skills = { actual }
+
+export type SkillKey = typeof actual[number]['key']
 
 export const config = {
   attributes: {
@@ -54,22 +79,9 @@ export const config = {
     },
     versatileRealistic: { label: 'Versátil realista', values: [5, 4, 3, 2, 1] },
   },
-}
+} as const
 
-export const attributeNames = {
-  perception: {
-    label: 'Percepción',
-  },
-  intelligence: {
-    label: 'Inteligencia',
-  },
-  dexterity: {
-    label: 'Destreza',
-  },
-  physical: {
-    label: 'Físico',
-  },
-}
+export type Tone = keyof typeof config.tone
 
 export const rasgos = [
   { nombre: 'Nombre', longitud: 'corto' },

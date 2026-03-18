@@ -27,14 +27,14 @@ const actual = [
   { attribute: 'intelligence', label: 'Supervivencia', key: 'survival' },
 ]
 
-export const abilities = { actual }
+export const skills = { actual }
 
 export const config = {
   attributes: {
     min: 4,
     max: 10,
   },
-  abilities: {
+  skills: {
     min: 0,
     max: 10,
   },

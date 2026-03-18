@@ -1,8 +1,8 @@
 import '@picocss/pico'
 import { AttributesSection } from './components/AttributesSection'
 import { ToneSelector } from './components/ToneSelector'
-import { ToneValidator } from './components/ToneValidator'
-import { AbilitiesGrid } from './components/AbilitiesGrid'
+import { ToneSummary } from './components/ToneSummary'
+import { SkillsGrid } from './components/SkillsGrid'
 
 function App() {
   return (
@@ -13,10 +13,10 @@ function App() {
 
       <section>
         <ToneSelector />
-        <ToneValidator />
+        <ToneSummary />
       </section>
 
-      <AbilitiesGrid />
+      <SkillsGrid />
     </main>
   )
 }

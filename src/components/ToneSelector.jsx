@@ -1,4 +1,4 @@
-import { config } from '../db'
+import { config } from '../rules'
 import { useCharacterStore } from '../store/useCharacterStore'
 
 export function ToneSelector() {

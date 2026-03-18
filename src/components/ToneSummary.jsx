@@ -1,14 +1,14 @@
-import { abilities, config } from '../db'
+import {  config } from '../rules'
 import { useCharacterStore } from '../store/useCharacterStore'
-import { groupAbilities } from '../utils/groupAbilities'
+import { groupAbilities } from '../utils/calculatePyramid.js'
 import styles from '../style.module.css'
 
-export function ToneValidator() {
+export function ToneSummary() {
   const tone = useCharacterStore((state) => state.tone)
-  const abilitiesState = useCharacterStore((state) => state.abilities)
+  const skillsState = useCharacterStore((state) => state.skills)
 
   const toneValues = config.tone[tone]?.values || []
-  const groupedAbilities = groupAbilities(abilitiesState)
+  const groupedAbilities = groupAbilities(skillsState)
 
   return (
     <div className="grid">
@@ -30,7 +30,7 @@ export function ToneValidator() {
             </p>
             <ul>
               {groupedAbilities[level]?.map((key) => {
-                const abilityData = abilities.actual.find((a) => a.key === key)
+                const abilityData = skills.actual.find((a) => a.key === key)
                 return <li key={key}>{abilityData?.label}</li>
               })}
             </ul>

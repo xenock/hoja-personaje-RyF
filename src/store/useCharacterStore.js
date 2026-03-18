@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import { config } from '../db'
+import { config } from '../rules'
 
 export const useCharacterStore = create((set) => ({
   attributes: {
@@ -9,7 +9,7 @@ export const useCharacterStore = create((set) => ({
     physical: config.attributes.min,
   },
   tone: 'specialistHeroic',
-  abilities: {},
+  skills: {},
 
   setAttribute: (key, value) =>
     set((state) => ({
@@ -21,10 +21,10 @@ export const useCharacterStore = create((set) => ({
 
   setTone: (tone) => set({ tone: tone }),
 
-  setAbility: (key, value) =>
+  setSkill: (key, value) =>
     set((state) => ({
       abilities: {
-        ...state.abilities,
+        ...state.skills,
         [key]: Number(value),
       },
     })),

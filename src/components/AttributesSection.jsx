@@ -1,4 +1,4 @@
-import { attributeNames, config } from '../db'
+import { attributeNames, config } from '../rules'
 import { useCharacterStore } from '../store/useCharacterStore'
 import styles from '../style.module.css'
 

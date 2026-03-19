@@ -8,7 +8,7 @@ export function ToneSelector() {
   return (
     <fieldset>
       <legend>Tono de la partida</legend>
-      {Object.entries(config.tone).map(([key, { label }]) => (
+      {(Object.keys(config.tone) as Tone[]).map((key) => (
         <label htmlFor={key} key={key}>
           <input
             id={key}
@@ -18,7 +18,7 @@ export function ToneSelector() {
             checked={tone === key}
             onChange={(e) => setTone(e.target.value as Tone)}
           />
-          {label}
+          {config.tone[key].label}
         </label>
       ))}
     </fieldset>

@@ -1,4 +1,4 @@
-import { config, skills } from '../rules'
+import { config, skillMap } from '../rules'
 import { useCharacterStore } from '../store/useCharacterStore'
 import styles from '../style.module.css'
 import { groupSkills } from '../utils'
@@ -29,8 +29,8 @@ export function ToneSummary() {
               {level}:
             </p>
             <ul>
-              {groupedAbilities[level]?.map((key) => {
-                const abilityData = skills.actual.find((a) => a.id === key)
+              {(groupedAbilities[level] || []).map((key) => {
+                const abilityData = skillMap.get(key)
                 return <li key={key}>{abilityData?.label}</li>
               })}
             </ul>

@@ -1,14 +1,16 @@
 import { create } from 'zustand'
 import { devtools } from 'zustand/middleware'
-import { type Attribute, config, type SkillId, type Tone } from '../rules'
+import { type Attribute, config, type SkillId, type Tone, type Setting } from '../rules'
 import { clamp } from '../utils'
 
 interface CharacterState {
   attributes: Record<Attribute, number>
   tone: Tone
+  setting: Setting
   skills: Partial<Record<SkillId, number>>
   setAttribute: (key: Attribute, value: number) => void
   setTone: (tone: Tone) => void
+  setSetting: (setting: Setting) => void
   setSkill: (id: SkillId, value: number) => void
 }
 
@@ -21,6 +23,7 @@ export const useCharacterStore = create<CharacterState>()(
       physical: config.attributes.min,
     },
     tone: 'specialistHeroic',
+    setting: 'actual',
     skills: {},
 
     setAttribute: (key, value) =>
@@ -36,6 +39,7 @@ export const useCharacterStore = create<CharacterState>()(
       })),
 
     setTone: (tone) => set({ tone }),
+    setSetting: (setting) => set({ setting }),
 
     setSkill: (id, value) =>
       set((state) => ({

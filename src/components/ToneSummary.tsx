@@ -30,7 +30,7 @@ export function ToneSummary() {
             </p>
             <ul>
               {groupedAbilities[level]?.map((key) => {
-                const abilityData = skills.actual.find((a) => a.key === key)
+                const abilityData = skills.actual.find((a) => a.id === key)
                 return <li key={key}>{abilityData?.label}</li>
               })}
             </ul>

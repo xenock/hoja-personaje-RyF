@@ -1,4 +1,4 @@
-import { attributeNames, config } from '../rules'
+import { type Attribute, attributeNames, config } from '../rules'
 import { useCharacterStore } from '../store/useCharacterStore'
 import styles from '../style.module.css'
 
@@ -8,17 +8,17 @@ export function AttributesSection() {
 
   return (
     <section className={styles.attributes}>
-      {Object.entries(attributeNames).map(([key, { label }]) => (
+      {(Object.keys(attributeNames) as Attribute[]).map((key) => (
         <label htmlFor={key} key={key}>
-          {label}
+          {attributeNames[key].label}
           <input
             id={key}
-            placeholder={label}
+            placeholder={attributeNames[key].label}
             type="number"
             min={config.attributes.min}
             max={config.attributes.max}
             value={stateAttributes[key]}
-            onChange={(e) => setAttribute(key, e.target.value)}
+            onChange={(e) => setAttribute(key, Number(e.target.value))}
           />
         </label>
       ))}

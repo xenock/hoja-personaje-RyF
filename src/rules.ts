@@ -15,44 +15,44 @@ export const attributeNames = {
 
 export type Attribute = keyof typeof attributeNames
 
-export interface Skill {
-  attribute: Attribute
-  label: string
-  key: string
-}
-
 const actual = [
-  { attribute: 'perception', label: 'Advertir/Notar', key: 'warn' },
-  { attribute: 'dexterity', label: 'Armas a Distancia', key: 'remoteWeapons' },
+  { attribute: 'perception', label: 'Advertir/Notar', id: 'warn' },
+  { attribute: 'dexterity', label: 'Armas a Distancia', id: 'remoteWeapons' },
   {
     attribute: 'physical',
     label: 'Armas Cuerpo a Cuerpo',
-    key: 'meleeWeapons',
+    id: 'meleeWeapons',
   },
-  { attribute: 'physical', label: 'Atletismo', key: 'athletics' },
-  { attribute: 'perception', label: 'Bailar', key: 'dance' },
-  { attribute: 'perception', label: 'Buscar', key: 'lookFor' },
-  { attribute: 'intelligence', label: 'Callejeo', key: 'callejeo' },
-  { attribute: 'intelligence', label: 'Comercio', key: 'trade' },
-  { attribute: 'dexterity', label: 'Conducir', key: 'drive' },
-  { attribute: 'dexterity', label: 'Esquivar', key: 'dodge' },
-  { attribute: 'intelligence', label: 'Historia', key: 'history' },
-  { attribute: 'intelligence', label: 'Idiomas', key: 'languages' },
-  { attribute: 'intelligence', label: 'Informática', key: 'computing' },
-  { attribute: 'intelligence', label: 'Leyes', key: 'laws' },
-  { attribute: 'intelligence', label: 'Mecánica', key: 'mechanics' },
-  { attribute: 'intelligence', label: 'Medicina', key: 'medicine' },
-  { attribute: 'perception', label: 'Música', key: 'music' },
-  { attribute: 'intelligence', label: 'Ocultismo', key: 'occultism' },
-  { attribute: 'perception', label: 'Reflejos', key: 'reflexes' },
-  { attribute: 'dexterity', label: 'Pilotar', key: 'pilot' },
-  { attribute: 'dexterity', label: 'Sigilo', key: 'stealth' },
-  { attribute: 'intelligence', label: 'Supervivencia', key: 'survival' },
-] as const satisfies readonly Skill[]
+  { attribute: 'physical', label: 'Atletismo', id: 'athletics' },
+  { attribute: 'perception', label: 'Bailar', id: 'dance' },
+  { attribute: 'perception', label: 'Buscar', id: 'lookFor' },
+  { attribute: 'intelligence', label: 'Callejeo', id: 'callejeo' },
+  { attribute: 'intelligence', label: 'Comercio', id: 'trade' },
+  { attribute: 'dexterity', label: 'Conducir', id: 'drive' },
+  { attribute: 'dexterity', label: 'Esquivar', id: 'dodge' },
+  { attribute: 'intelligence', label: 'Historia', id: 'history' },
+  { attribute: 'intelligence', label: 'Idiomas', id: 'languages' },
+  { attribute: 'intelligence', label: 'Informática', id: 'computing' },
+  { attribute: 'intelligence', label: 'Leyes', id: 'laws' },
+  { attribute: 'intelligence', label: 'Mecánica', id: 'mechanics' },
+  { attribute: 'intelligence', label: 'Medicina', id: 'medicine' },
+  { attribute: 'perception', label: 'Música', id: 'music' },
+  { attribute: 'intelligence', label: 'Ocultismo', id: 'occultism' },
+  { attribute: 'perception', label: 'Reflejos', id: 'reflexes' },
+  { attribute: 'dexterity', label: 'Pilotar', id: 'pilot' },
+  { attribute: 'dexterity', label: 'Sigilo', id: 'stealth' },
+  { attribute: 'intelligence', label: 'Supervivencia', id: 'survival' },
+] as const
+
+export type SkillId = (typeof actual)[number]['id']
+
+export interface Skill {
+  attribute: Attribute
+  label: string
+  id: SkillId
+}
 
 export const skills = { actual }
-
-export type SkillKey = (typeof actual)[number]['key']
 
 export const config = {
   attributes: {

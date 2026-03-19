@@ -1,8 +1,7 @@
-import { config } from '../rules'
+import { config, skills } from '../rules'
 import { useCharacterStore } from '../store/useCharacterStore'
-import { groupSkills } from '../utils'
 import styles from '../style.module.css'
-import { skills } from '../rules'
+import { groupSkills } from '../utils'
 
 export function ToneSummary() {
   const tone = useCharacterStore((state) => state.tone)

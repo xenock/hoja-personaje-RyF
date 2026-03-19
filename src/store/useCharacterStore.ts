@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import { config, type Attribute, type SkillKey, type Tone } from '../rules'
+import { type Attribute, config, type SkillKey, type Tone } from '../rules'
 
 interface CharacterState {
   attributes: Record<Attribute, number>

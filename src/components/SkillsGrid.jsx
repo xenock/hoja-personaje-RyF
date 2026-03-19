@@ -1,5 +1,4 @@
-import { Fragment } from 'react'
-import { skills, config } from '../rules'
+import { config, skills } from '../rules'
 import { useCharacterStore } from '../store/useCharacterStore'
 import styles from '../style.module.css'
 
@@ -15,21 +14,19 @@ function SkillRow({ skillKey, label, attributeKey }) {
   const total = attributeVal + skillVal
 
   return (
-    <Fragment>
-      <label htmlFor={skillKey}>
-        <input
-          id={skillKey}
-          placeholder={label}
-          type="number"
-          min={config.skills.min}
-          max={config.skills.max}
-          value={skillVal}
-          onChange={(e) => setSkill(skillKey, e.target.value)}
-        />
-        {`${label} `}
-        {total}
-      </label>
-    </Fragment>
+    <label htmlFor={skillKey}>
+      <input
+        id={skillKey}
+        placeholder={label}
+        type="number"
+        min={config.skills.min}
+        max={config.skills.max}
+        value={skillVal}
+        onChange={(e) => setSkill(skillKey, e.target.value)}
+      />
+      {`${label} `}
+      {total}
+    </label>
   )
 }
 

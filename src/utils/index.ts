@@ -1,7 +1,7 @@
 import type { SkillKey } from '../rules'
 
 export const groupSkills = (
-  entries: Partial<Record<SkillKey, number>>,
+  entries?: Partial<Record<SkillKey, number>> | null,
 ): Record<number, SkillKey[]> => {
   if (!entries) return {}
 

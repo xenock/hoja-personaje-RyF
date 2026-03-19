@@ -1,8 +1,8 @@
 import '@picocss/pico'
 import { AttributesSection } from './components/AttributesSection'
+import { SkillsGrid } from './components/SkillsGrid'
 import { ToneSelector } from './components/ToneSelector'
 import { ToneSummary } from './components/ToneSummary'
-import { SkillsGrid } from './components/SkillsGrid'
 
 function App() {
   return (

@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
-import { groupSkills } from '.'
+import { clamp, groupSkills } from '.'
 
-describe('groupAbilities', () => {
+describe('groupSkills', () => {
   it('should return an empty object if no entries are provided', () => {
     expect(groupSkills()).toEqual({})
     expect(groupSkills(null)).toEqual({})
@@ -23,5 +23,25 @@ describe('groupAbilities', () => {
     }
 
     expect(groupSkills(skills)).toEqual(expected)
+  })
+})
+
+describe('clamp', () => {
+  it('should return the value if it is within range', () => {
+    expect(clamp(5, 0, 10)).toBe(5)
+  })
+
+  it('should return the minimum if the value is below range', () => {
+    expect(clamp(-5, 0, 10)).toBe(0)
+  })
+
+  it('should return the maximum if the value is above range', () => {
+    expect(clamp(15, 0, 10)).toBe(10)
+  })
+
+  it('should work with negative ranges', () => {
+    expect(clamp(-10, -5, 5)).toBe(-5)
+    expect(clamp(0, -5, 5)).toBe(0)
+    expect(clamp(10, -5, 5)).toBe(5)
   })
 })

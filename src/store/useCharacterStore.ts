@@ -1,6 +1,7 @@
 import { create } from 'zustand'
 import { devtools } from 'zustand/middleware'
 import { type Attribute, config, type SkillId, type Tone } from '../rules'
+import { clamp } from '../utils'
 
 interface CharacterState {
   attributes: Record<Attribute, number>
@@ -26,7 +27,11 @@ export const useCharacterStore = create<CharacterState>()(
       set((state) => ({
         attributes: {
           ...state.attributes,
-          [key]: Number(value),
+          [key]: clamp(
+            Number(value),
+            config.attributes.min,
+            config.attributes.max,
+          ),
         },
       })),
 
@@ -36,7 +41,7 @@ export const useCharacterStore = create<CharacterState>()(
       set((state) => ({
         skills: {
           ...state.skills,
-          [id]: Number(value),
+          [id]: clamp(Number(value), config.skills.min, config.skills.max),
         },
       })),
   })),

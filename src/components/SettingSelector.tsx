@@ -8,18 +8,21 @@ export function SettingSelector() {
   return (
     <fieldset>
       <legend>Entorno de juego</legend>
-      <select
-        value={currentSetting}
-        onChange={(e) => setSetting(e.target.value as Setting)}
-      >
-        {(Object.keys(skills) as Setting[]).map((key) => (
-          <option key={key} value={key}>
-            {key === 'actual'
-              ? 'Actual'
-              : key.charAt(0).toUpperCase() + key.slice(1)}
-          </option>
-        ))}
-      </select>
+      {(Object.keys(skills) as Setting[]).map((key) => (
+        <label htmlFor={key} key={key}>
+          <input
+            id={key}
+            type="radio"
+            name="setting"
+            value={key}
+            checked={currentSetting === key}
+            onChange={(e) => setSetting(e.target.value as Setting)}
+          />
+          {key === 'actual'
+            ? 'Actual'
+            : key.charAt(0).toUpperCase() + key.slice(1)}
+        </label>
+      ))}
     </fieldset>
   )
 }

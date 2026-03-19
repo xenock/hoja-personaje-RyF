@@ -8,7 +8,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "format": "biome format --write .",
-    "lint": "biome check --write ."
+    "lint": "biome check --write .",
+    "test": "vitest"
   },
   "dependencies": {
     "@picocss/pico": "^2.1.1",
@@ -22,7 +23,8 @@
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react-swc": "^4.3.0",
     "typescript": "^5.9.3",
-    "vite": "^8.0.0"
+    "vite": "^8.0.0",
+    "vitest": "^4.1.0"
   },
   "packageManager": "pnpm@10.32.1+sha512.a706938f0e89ac1456b6563eab4edf1d1faf3368d1191fc5c59790e96dc918e4456ab2e67d613de1043d2e8c81f87303e6b40d4ffeca9df15ef1ad567348f2be"
 }

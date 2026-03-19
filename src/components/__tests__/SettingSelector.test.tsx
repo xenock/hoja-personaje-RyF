@@ -40,9 +40,8 @@ describe('SettingSelector', () => {
   it('resets skills when setting changes', async () => {
     const user = userEvent.setup()
 
-    // Simulate some skills already set in the store
     useCharacterStore.setState({
-      skills: { 'buscar-actual': 5 } as any,
+      skills: { lookFor: 5 },
     })
 
     render(<SettingSelector />)

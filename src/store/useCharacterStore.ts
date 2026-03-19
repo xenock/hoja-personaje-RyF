@@ -38,8 +38,8 @@ export const useCharacterStore = create<CharacterState>()(
         },
       })),
 
-    setTone: (tone) => set({ tone }),
-    setSetting: (setting) => set({ setting }),
+    setTone: (tone) => set({ tone, skills: {} }),
+    setSetting: (setting) => set({ setting, skills: {} }),
 
     setSkill: (id, value) =>
       set((state) => ({

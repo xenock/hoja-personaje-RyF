@@ -1,5 +1,5 @@
-import { config, type Tone } from '../rules'
-import { useCharacterStore } from '../store/useCharacterStore'
+import { config, type Tone } from '@rules'
+import { useCharacterStore } from '@store/useCharacterStore'
 
 export function ToneSelector() {
   const tone = useCharacterStore((state) => state.tone)

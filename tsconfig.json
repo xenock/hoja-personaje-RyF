@@ -14,7 +14,14 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": ["src/components/*"],
+      "@rules": ["src/rules/index"],
+      "@store/*": ["src/store/*"],
+      "@utils": ["src/utils/index"]
+    }
   },
   "include": ["src"]
 }

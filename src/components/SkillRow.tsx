@@ -1,5 +1,5 @@
-import { config, type Skill } from '../rules'
-import { useCharacterStore } from '../store/useCharacterStore'
+import { config, type Skill } from '@rules'
+import { useCharacterStore } from '@store/useCharacterStore'
 
 export const SkillRow = ({ id, label, attribute }: Skill) => {
   const skillVal = useCharacterStore(

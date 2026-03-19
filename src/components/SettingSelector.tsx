@@ -1,5 +1,5 @@
-import { type Setting, skills } from '../rules'
-import { useCharacterStore } from '../store/useCharacterStore'
+import { type Setting, skills } from '@rules'
+import { useCharacterStore } from '@store/useCharacterStore'
 
 export function SettingSelector() {
   const currentSetting = useCharacterStore((state) => state.setting)

@@ -1,5 +1,5 @@
-import { type Attribute, attributeNames, config } from '../rules'
-import { useCharacterStore } from '../store/useCharacterStore'
+import { type Attribute, attributeNames, config } from '@rules'
+import { useCharacterStore } from '@store/useCharacterStore'
 import styles from '../style.module.css'
 
 export function AttributesSection() {

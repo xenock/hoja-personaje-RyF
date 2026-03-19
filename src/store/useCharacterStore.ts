@@ -1,13 +1,13 @@
-import { create } from 'zustand'
-import { devtools } from 'zustand/middleware'
 import {
   type Attribute,
   config,
   type Setting,
   type SkillId,
   type Tone,
-} from '../rules'
-import { clamp } from '../utils'
+} from '@rules'
+import { clamp } from '@utils'
+import { create } from 'zustand'
+import { devtools } from 'zustand/middleware'
 
 interface CharacterState {
   attributes: Record<Attribute, number>

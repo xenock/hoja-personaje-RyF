@@ -1,5 +1,5 @@
-import { skills } from '../rules'
-import { useCharacterStore } from '../store/useCharacterStore'
+import { skills } from '@rules'
+import { useCharacterStore } from '@store/useCharacterStore'
 import styles from '../style.module.css'
 import { SkillRow } from './SkillRow'
 

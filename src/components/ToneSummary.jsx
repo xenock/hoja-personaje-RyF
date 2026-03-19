@@ -1,6 +1,6 @@
 import {  config } from '../rules'
 import { useCharacterStore } from '../store/useCharacterStore'
-import { groupAbilities } from '../utils/calculatePyramid.js'
+import { groupSkills } from '../utils'
 import styles from '../style.module.css'
 import { skills } from '../rules'
 
@@ -9,7 +9,7 @@ export function ToneSummary() {
   const skillsState = useCharacterStore((state) => state.skills)
 
   const toneValues = config.tone[tone]?.values || []
-  const groupedAbilities = groupAbilities(skillsState)
+  const groupedAbilities = groupSkills(skillsState)
 
   return (
     <div className="grid">

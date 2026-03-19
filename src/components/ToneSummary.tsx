@@ -7,7 +7,7 @@ export function ToneSummary() {
   const tone = useCharacterStore((state) => state.tone)
   const skillsState = useCharacterStore((state) => state.skills)
 
-  const toneValues = config.tone[tone]?.values || []
+  const toneValues = config.tone[tone]?.maxSkillsPerLevel || []
   const groupedAbilities = groupSkills(skillsState)
 
   return (

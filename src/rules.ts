@@ -70,14 +70,20 @@ export const config = {
   tone: {
     specialistHeroic: {
       label: 'Especialista heroico',
-      values: [3, 3, 3, 3, 3, 1],
+      maxSkillsPerLevel: [3, 3, 3, 3, 3, 1],
     },
-    versatileHeroic: { label: 'Versátil heroico', values: [6, 5, 4, 3, 2, 1] },
+    versatileHeroic: {
+      label: 'Versátil heroico',
+      maxSkillsPerLevel: [6, 5, 4, 3, 2, 1],
+    },
     specialistRealistic: {
       label: 'Especialista realista',
-      values: [2, 2, 2, 2, 2],
+      maxSkillsPerLevel: [2, 2, 2, 2, 2],
     },
-    versatileRealistic: { label: 'Versátil realista', values: [5, 4, 3, 2, 1] },
+    versatileRealistic: {
+      label: 'Versátil realista',
+      maxSkillsPerLevel: [5, 4, 3, 2, 1],
+    },
   },
 } as const
 

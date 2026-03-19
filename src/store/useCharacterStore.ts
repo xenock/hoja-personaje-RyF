@@ -1,6 +1,12 @@
 import { create } from 'zustand'
 import { devtools } from 'zustand/middleware'
-import { type Attribute, config, type SkillId, type Tone, type Setting } from '../rules'
+import {
+  type Attribute,
+  config,
+  type Setting,
+  type SkillId,
+  type Tone,
+} from '../rules'
 import { clamp } from '../utils'
 
 interface CharacterState {

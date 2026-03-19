@@ -13,13 +13,13 @@ describe('groupAbilities', () => {
       brawl: 3,
       shoot: 2,
       investigate: 2,
-      drive: 1
+      drive: 1,
     }
-    
+
     const expected = {
       1: ['drive'],
       2: ['shoot', 'investigate'],
-      3: ['athletics', 'brawl']
+      3: ['athletics', 'brawl'],
     }
 
     expect(groupSkills(skills)).toEqual(expected)

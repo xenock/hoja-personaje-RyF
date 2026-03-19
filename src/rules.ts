@@ -52,7 +52,7 @@ const actual = [
 
 export const skills = { actual }
 
-export type SkillKey = typeof actual[number]['key']
+export type SkillKey = (typeof actual)[number]['key']
 
 export const config = {
   attributes: {

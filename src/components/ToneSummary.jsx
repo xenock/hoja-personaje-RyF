@@ -1,4 +1,4 @@
-import {  config } from '../rules'
+import { config } from '../rules'
 import { useCharacterStore } from '../store/useCharacterStore'
 import { groupSkills } from '../utils'
 import styles from '../style.module.css'

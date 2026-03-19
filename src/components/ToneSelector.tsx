@@ -1,4 +1,4 @@
-import { config } from '../rules'
+import { config, type Tone } from '../rules'
 import { useCharacterStore } from '../store/useCharacterStore'
 
 export function ToneSelector() {
@@ -16,7 +16,7 @@ export function ToneSelector() {
             name="tone"
             value={key}
             checked={tone === key}
-            onChange={(e) => setTone(e.target.value)}
+            onChange={(e) => setTone(e.target.value as Tone)}
           />
           {label}
         </label>

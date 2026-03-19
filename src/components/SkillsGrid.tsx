@@ -1,41 +1,11 @@
-import { config, type Skill, skills } from '../rules'
-import { useCharacterStore } from '../store/useCharacterStore'
+import { skills } from '../rules'
 import styles from '../style.module.css'
+import { SkillRow } from './SkillRow'
 
-const SkillRow = ({ id, label, attribute }: Skill) => {
-  const skillVal = useCharacterStore(
-    (state) => Number(state.skills[id]) || config.skills.min,
-  )
-  const attributeVal = useCharacterStore(
-    (state) => Number(state.attributes[attribute]) || config.attributes.min,
-  )
-  const setSkill = useCharacterStore((state) => state.setSkill)
-
-  const total = attributeVal + skillVal
-
-  return (
-    <label htmlFor={id}>
-      <input
-        id={id}
-        placeholder={label}
-        type="number"
-        min={config.skills.min}
-        max={config.skills.max}
-        value={skillVal}
-        onChange={(e) => setSkill(id, Number(e.target.value))}
-      />
-      {`${label} `}
-      {total}
-    </label>
-  )
-}
-
-export const SkillsGrid = () => {
-  return (
-    <section className={styles.skills}>
-      {skills.actual.map((skill) => (
-        <SkillRow key={skill.id} {...skill} />
-      ))}
-    </section>
-  )
-}
+export const SkillsGrid = () => (
+  <section className={styles.skills}>
+    {skills.actual.map((skill) => (
+      <SkillRow key={skill.id} {...skill} />
+    ))}
+  </section>
+)

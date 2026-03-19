@@ -3,7 +3,7 @@ export const groupAbilities = (entries) => {
   return Object.entries(entries).reduce((group, [skill, value]) => {
     return {
       ...group,
-      [value]: [...(group[value] || []), ability],
+      [value]: [...(group[value] || []), skill],
     }
   }, {})
 }

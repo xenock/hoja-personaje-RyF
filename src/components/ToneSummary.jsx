@@ -2,6 +2,7 @@ import {  config } from '../rules'
 import { useCharacterStore } from '../store/useCharacterStore'
 import { groupAbilities } from '../utils/calculatePyramid.js'
 import styles from '../style.module.css'
+import { skills } from '../rules'
 
 export function ToneSummary() {
   const tone = useCharacterStore((state) => state.tone)
